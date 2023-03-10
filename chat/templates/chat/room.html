@@ -87,7 +87,15 @@
                 console.log('The socket close unexpectadly');
             };
 
-            document.querySelector('#chat-message-submit').onclick = function(e) {
+            submit = document.querySelector('#chat-message-submit');
+
+            document.querySelector('#chat-message-input').onkeydown = function(e) {
+                if (e.key === 'Enter') {
+                    submit.click()
+                }
+            };
+            
+            submit.onclick = function(e) {
                 const messageInputDom = document.querySelector('#chat-message-input');
                 const message = messageInputDom.value;
 
